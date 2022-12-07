@@ -39,7 +39,7 @@ const Home = ({ navigation }) => {
     <View style={{ flex: 1, padding: 24 }}>
       {isLoading ? <ActivityIndicator /> : (
         <View>
-          <Text style={{ color: 'black' }}>Student name: Id</Text>
+          <Text style={{ color: 'black' }}>Wissam Hamed: 101243840</Text>
           <FlatList
             data={albums}
             keyExtractor={({ id }, index) => id}
