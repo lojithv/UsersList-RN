@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import type {Node} from 'react';
+import type { Node } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -25,10 +25,16 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import AlbumDetails from './src/screens/AlbumDetails';
+import Home from './src/screens/Home';
+
+const Stack = createNativeStackNavigator();
 
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
-const Section = ({children, title}): Node => {
+const Section = ({ children, title }): Node => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -62,13 +68,20 @@ const App: () => Node = () => {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <NavigationContainer>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-       <Text>Hello</Text>
-    </SafeAreaView>
+      <Stack.Navigator initialRouteName='Home'>
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{ title: 'Albums' }}
+        />
+        <Stack.Screen name="AlbumDetails" options={{ title: 'Album Details' }} component={AlbumDetails} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
