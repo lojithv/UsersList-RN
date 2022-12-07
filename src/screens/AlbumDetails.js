@@ -3,7 +3,7 @@ import React from 'react'
 
 const AlbumDetails = ({ navigation, route }) => {
   return (
-    <View style={{ flex: 1,padding:20 }}>
+    <View style={{ flex: 1,padding:20,justifyContent:'center' }}>
       <View style={{margin:5}}>
         <Text style={{ color: 'black', fontWeight: 'bold' }}>Album ID</Text>
         <Text style={{ color: 'black' }}>{route.params.id}</Text>
@@ -13,7 +13,7 @@ const AlbumDetails = ({ navigation, route }) => {
         <Text style={{ color: 'black' }}>{route.params.title}</Text>
       </View>
       <View style={{margin:5}}>
-        <Text style={{ color: 'black', fontWeight: 'bold' }}>Username</Text>
+        <Text style={{ color: 'black', fontWeight: 'bold' }}>User name</Text>
         <Text style={{ color: 'black' }}>{route.params.username}</Text>
       </View>
     </View>
