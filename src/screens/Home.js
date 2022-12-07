@@ -35,17 +35,21 @@ const Home = ({ navigation }) => {
     getUsers();
   }, []);
 
+  const handleNavigate = (item) => {
+    navigation.navigate('Details', { ...item, username: Users.find((u)=> u.id === item.userId)?.username })
+  }
+
   return (
     <View style={{ flex: 1, padding: 24 }}>
       {isLoading ? <ActivityIndicator /> : (
         <View>
-          <Text style={{ color: 'black' }}>Student name: Id</Text>
+          <Text style={{ color: 'black', marginBottom:5 }}>Name: Mohsen Yahya  |  ID: 101241827</Text>
           <FlatList
             data={albums}
             keyExtractor={({ id }, index) => id}
             renderItem={({ item }) => (
-              <TouchableHighlight onPress={() => navigation.navigate('AlbumDetails', { ...item, username: Users.find((u)=> u.id === item.userId)?.username })} underlayColor="white">
-                <View style={{ backgroundColor: '#cfd6e3', padding: 5, margin: 4 }}>
+              <TouchableHighlight onPress={() => handleNavigate(item)} underlayColor="white">
+                <View style={{ padding: 5, margin: 4 }}>
                   <Text style={{ color: 'black' }}>{item.title}</Text>
                 </View>
               </TouchableHighlight>

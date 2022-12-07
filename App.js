@@ -79,7 +79,7 @@ const App: () => Node = () => {
           component={Home}
           options={{ title: 'Albums' }}
         />
-        <Stack.Screen name="AlbumDetails" options={{ title: 'Album Details' }} component={AlbumDetails} />
+        <Stack.Screen name="Details" options={{ title: 'Album Details' }} component={AlbumDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   );
